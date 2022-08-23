@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+import "constants/util.proto";
+import "employee-request.proto";
+
+option java_multiple_files = true;
+option java_package = "com.example.gRPC.example.employee";
+
+message EmployeeResponse {
+  string emp_id = 1;
+  string emp_name = 2;
+  constants.Role role = 3;
+}
+
+service EmployeeService {
+  rpc getEmployee(EmployeeRequest) returns (EmployeeResponse) {};
+}
